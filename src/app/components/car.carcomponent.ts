@@ -54,7 +54,7 @@ export class CarComponent {
    * message - функция для вывода сообщений в UI
    * @param type - спецификатор типа сообщения
    */
-  message (type: string) {
+  message (type: string): void {
     switch (type) {
       case 'warning': this.report = 'Керосина не достаточно!';
       break;
@@ -74,7 +74,7 @@ export class CarComponent {
    * максимального пути
    * функция управляет отображением поля заправки и выводимыми сообщениями
    */
-  fillUp(value: number) {
+  fillUp(value: number): void {
     this.freeeTankSpase = this.tank - this.amountOfFuel;
     if (value >= this.freeeTankSpase) {
       this.amountOfFuel = this.tank;
