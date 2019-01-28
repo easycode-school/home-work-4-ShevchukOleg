@@ -1,0 +1,29 @@
+<div class = "d-flex between">
+  <h3> Автомобиь марки: {{name}}</h3>
+  <p class = "massege">{{report}}</p>
+</div>
+<div>
+  <p *ngFor = "let item of characteristics">{{item}}</p>
+</div>
+<div class = "d-flex around">
+    <div class = "fuel">
+      <p>Запас топлива</p>
+      <p>{{amountOfFuel}} литров</p>
+    </div>
+    <div class = "rase">
+      <p>Пробег</p>
+      <p>{{rase}} километров</p>
+    </div>
+</div>
+<div class = "refuel" *ngIf = "refuel">
+  <p>Залить топливо</p>
+  <input type = "number" id = "f" min = "0" [max] = "tank - amountOfFuel" (change) = "fillUp(+$event.target.value)" >
+</div>
+<div class = "go">
+  <p>Можем проехать {{maxRoad}} километров.</p>
+  <label for="s">Сколько изволите пролететь?</label>
+  <input type = "number" id = "s" min = "0" [max] = "maxRoad" (change) = "way = +$event.target.value" >
+  <button id = "drive" (click) = "drive(way)">
+    <img src="../../assets/img/car.jpg" alt="car">
+  </button>
+</div>

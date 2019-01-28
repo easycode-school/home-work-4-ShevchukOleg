@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+.d-flex {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.around{
+  justify-content: space-around;
+}
+
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+img {
+  max-width: 70px;
+  max-height: 70px;
+  vertical-align: middle;
+}
+button#drive {
+  margin: 10px;
+}
+
+.center {
+  text-align:center;
+}
