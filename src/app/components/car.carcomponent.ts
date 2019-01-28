@@ -17,7 +17,13 @@ export class CarComponent {
   public maxRoad = 233.33;
   public way: number;
   public freeeTankSpase: number = this.tank - this.amountOfFuel;
-  drive(way: number) {
+  /**
+   *drive - метод  и обработчик события для запуска виртуального авто
+   * dog param {number} way - принимает желаемую длинну пути
+   * сопоставляется максимальный поть с желаемым, сообщается о необходимости доаправки
+   * при отправлении более чем на максимальный путь, и в случае низкого запаса топлива
+   */
+  drive(way: number): void {
     this.maxRoad = Math.round(this.amountOfFuel * 10000 / 12) / 100;
     console.log(this.maxRoad);
 
@@ -44,7 +50,10 @@ export class CarComponent {
     this.maxRoad = Math.round(this.amountOfFuel * 10000 / 12) / 100;
     console.log(this.maxRoad);
   }
-
+  /**
+   * message - функция для вывода сообщений в UI
+   * @param type - спецификатор типа сообщения
+   */
   message (type: string) {
     switch (type) {
       case 'warning': this.report = 'Керосина не достаточно!';
@@ -57,10 +66,18 @@ export class CarComponent {
       break;
     }
   }
+  /**
+   * fillUp - обработчик события заправки выртуального авто
+   * @param value - объем топлива
+   * при заправке происходят пересчеты основных параметров:
+   * остатака топлива, свободного места в баке
+   * максимального пути
+   * функция управляет отображением поля заправки и выводимыми сообщениями
+   */
   fillUp(value: number) {
     this.freeeTankSpase = this.tank - this.amountOfFuel;
     if (value >= this.freeeTankSpase) {
-      this.amountOfFuel = 50;
+      this.amountOfFuel = this.tank;
       this.maxRoad = Math.round(this.amountOfFuel * 10000 / 12) / 100;
       this.message ('Dou');
     } else {
